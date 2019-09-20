@@ -19,3 +19,7 @@ void Vendedor::setComision(float comision) {
 Vendedor::~Vendedor() {
 
 }
+
+Vendedor::Vendedor(string, int, int, int) {
+
+}

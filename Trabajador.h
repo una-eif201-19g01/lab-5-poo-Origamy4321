@@ -50,7 +50,7 @@ public:
 
     virtual float calcularSalarioNeto()=0;
 
-    string toString();
+    virtual string toString();
 
     string obtenerHorasExtras();
 };

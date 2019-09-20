@@ -25,6 +25,8 @@ public:
     void setComision(float comision);
 
     virtual ~Vendedor();
+
+    Vendedor(string, int ,int, int);
 };
 
 

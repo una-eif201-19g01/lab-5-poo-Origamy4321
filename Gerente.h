@@ -11,13 +11,12 @@ class Trabajador;
 using namespace std;
 class Gerente: public Trabajador {
 
-private:
-    float bonifiacion;
 
 public:
     Gerente();
 
-    Gerente(float bonifiacion);
+
+    Gerente(const string &iD, int horasLab, int precioHoras, int annosLaborados, float bonificacion);
 
     virtual ~Gerente();
 
@@ -26,6 +25,22 @@ public:
     void setBonifiacion(float bonifiacion);
 
     string toString();
+
+    float calcularSalarioBase() override;
+
+    float calcularHorasExtra() override;
+
+    float calcularAnualidads() override;
+
+    float calcularSalarioBruto() override;
+
+    float calcularCargas() override;
+
+    float calcularSalarioNeto() override;
+
+private:
+
+    float bonificacion;
 
 };
 
