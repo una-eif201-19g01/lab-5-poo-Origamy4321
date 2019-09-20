@@ -8,6 +8,21 @@
 
 class Vendedor {
 
+private:
+    float comision;
+    int ventas;
+
+public:
+
+    Vendedor();
+
+    Vendedor(float comision, int ventas);
+
+    float getComision() const;
+
+    void setComision(float comision);
+
+    virtual ~Vendedor();
 };
 
 

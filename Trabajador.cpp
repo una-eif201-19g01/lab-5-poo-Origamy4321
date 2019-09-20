@@ -10,7 +10,7 @@ Trabajador::Trabajador(const string &iD, int horasLab, int precioHoras, int anno
                                                                                               annosLaborados(
                                                                                                       annosLaborados) {}
 
-Trabajador::Trabajador() {}
+Trabajador::Trabajador() : iD(""), horasLab(0), precioHoras(0), annosLaborados(0) {}
 
 const string &Trabajador::getId() const {
     return iD;
@@ -47,6 +47,7 @@ void Trabajador::setAnnosLaborados(int annosLaborados) {
 
 float Trabajador::calcularSalarioBase() {
 
+    int extra = 0;
     int suma = 0;
     if (horasLab = 48)
         for (int i = 1; i < 48; i++) {
@@ -56,19 +57,23 @@ float Trabajador::calcularSalarioBase() {
     return suma;
 }
 
-float Trabajador::calcularHorasExtra(int extra) {
-
+float Trabajador::calcularHorasExtra() {
     int suma = 0;
-    int precioHorasExtras = precioHoras * 0.50;
-    if (extra < 0) {
+    int precioHorasExtras=0;
+    int extra = horasLab - 48;
+    if (extra <= 0)
+        return 0;
+    else
+    precioHorasExtras = precioHoras * 0.50;
+    if (extra < 0)
         for (int i = 0; i < extra; i++) {
 
-            suma += precioHorasExtras;
-        }
-        return suma;
-    }
-}
+            suma += precioHorasExtras;}
 
+            return suma;
+
+
+}
 float Trabajador::calcularAnualidads() {
 
     int suma = 0;
@@ -76,17 +81,16 @@ float Trabajador::calcularAnualidads() {
     if (annosLaborados < 0)
         for (int i = 0; i < annosLaborados; i++) {
 
-            suma += calcularSalarioBase();
+            suma = suma + calcularSalarioBase();
         }
-
 
     return suma;
 }
 
-float Trabajador::calcularSalarioBruto(int extra) {
+float Trabajador::calcularSalarioBruto() {
 
     int suma = 0;
-    suma = calcularSalarioBase() + calcularAnualidads() + calcularHorasExtra(extra);
+    suma = calcularSalarioBase() + calcularAnualidads() + calcularHorasExtra();
 
 
     return suma;
@@ -94,12 +98,29 @@ float Trabajador::calcularSalarioBruto(int extra) {
 
 float Trabajador::calcularCargas() {
 
-    int cargas = 0;
+    int nuevoSalario = calcularSalarioBruto();
+    nuevoSalario * 0.09;
 
 
-    return 0;
+
+    return nuevoSalario;
 }
 
 float Trabajador::calcularSalarioNeto() {
-    return 0;
+
+    int salarioReal;
+
+    salarioReal=calcularSalarioBruto()-calcularCargas();
+
+    return salarioReal;
 }
+
+string Trabajador::toString() {
+    string z;
+    z = +"identifación: " + getId() + "\n" + "el salario base es: " + to_string(calcularSalarioBase()) + "\n" +
+        "las horas extras son de: " + to_string(calcularHorasExtra()) + "\n" + "el salario bruto es de : " +
+       to_string(calcularSalarioBruto()) + "\n" + "el salario neto es de: " + to_string(calcularSalarioNeto()) +"\n";
+
+    return z;
+}
+

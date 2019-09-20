@@ -38,17 +38,21 @@ public:
 
     void setAnnosLaborados(int annosLaborados);
 
-    virtual float calcularSalarioBase();
+    virtual float calcularSalarioBase()=0;
 
-    virtual float calcularHorasExtra(int extra);
+    virtual float calcularHorasExtra()=0;
 
-    virtual float calcularAnualidads();
+    virtual float calcularAnualidads()=0;
 
-    virtual float calcularSalarioBruto(int extra);
+    virtual float calcularSalarioBruto()=0;
 
-    virtual float calcularCargas();
+    virtual float calcularCargas()=0;
 
-    virtual float calcularSalarioNeto();
+    virtual float calcularSalarioNeto()=0;
+
+    string toString();
+
+    string obtenerHorasExtras();
 };
 
 
