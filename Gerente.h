@@ -6,9 +6,10 @@
 #define LAB_5_POO_ORIGAMY4321_GERENTE_H
 
 #include <string>
-
+#include "Trabajador.h"
+class Trabajador;
 using namespace std;
-class Gerente {
+class Gerente: public Trabajador {
 
 private:
     float bonifiacion;

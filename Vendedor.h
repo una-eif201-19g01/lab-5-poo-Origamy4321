@@ -5,8 +5,10 @@
 #ifndef LAB_5_POO_ORIGAMY4321_VENDEDOR_H
 #define LAB_5_POO_ORIGAMY4321_VENDEDOR_H
 
-
-class Vendedor {
+#include "Trabajador.h"
+class Trabajador;
+using namespace std;
+class Vendedor: public Trabajador {
 
 private:
     float comision;
