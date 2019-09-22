@@ -18,15 +18,21 @@ public:
 
     Vendedor();
 
-    Vendedor(float comision, int ventas);
+    Vendedor(const string &iD, int horasLab, int precioHoras, int annosLaborados, int comision, int ventas);
 
     float getComision() const;
 
     void setComision(float comision);
 
+    int getVentas() const;
+
+    void setVentas(int ventas);
+
     virtual ~Vendedor();
 
-    Vendedor(string, int ,int, int);
+    float calculoComision();
+
+    float calcularSalarioBruto() override;
 };
 
 

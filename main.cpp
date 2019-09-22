@@ -10,27 +10,20 @@
 int main(){
 
 
-cout<<"hola"<<endl;
 
-Trabajador* vec[3];
+Secretaria secretaria("001", 59,10000, 4);
 
-Secretaria secretaria("001", 59,35000, 4);
+cout<<"los datos de secretaria son: "<< secretaria.toString()<<endl<<endl;
 
-//Vendedor vendedor1("002",67,200000,20);
+Vendedor vendedor1("002",50,5000,20,1500,20);
 
-//Gerente gerente1("003", 56, 21000,3);
-
-//vec[0] = secretaria;
-
-//vec[1]= vendedor1:
-
-//vec[3] = &gerente1;
+    cout<<"los datos del vendedor son: "<< vendedor1.toString()<<endl<<endl;
 
 
-//for(int i =0; i<3; i++){
+Gerente gerente1("003", 56, 3000,3,25000);
 
-  //  vec[i]->toString();
 
-//}
+    cout<<"los datos del gerente son: "<< gerente1.toString()<<endl<<endl;
+
 
 }

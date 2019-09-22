@@ -47,10 +47,10 @@ void Trabajador::setAnnosLaborados(int annosLaborados) {
 
 float Trabajador::calcularSalarioBase() {
 
-    int extra = 0;
+    int extra = horasLab;
     int suma = 0;
-    if (horasLab = 48)
-        for (int i = 1; i < 48; i++) {
+    if (extra = 48)
+        for (int i = 1; i <= horasLab; i++) {
 
             suma += precioHoras;
         }
@@ -59,47 +59,45 @@ float Trabajador::calcularSalarioBase() {
 
 float Trabajador::calcularHorasExtra() {
     int suma = 0;
-    int precioHorasExtras=0;
+    int precioHorasExtras = 0;
     int extra = horasLab - 48;
-    if (extra <= 0)
+    if (extra <= 0) {
         return 0;
-    else
-    precioHorasExtras = precioHoras * 0.50;
-    if (extra < 0)
+    } else if (extra >= 1)
+        precioHorasExtras = precioHoras * 0.50;
+
         for (int i = 0; i < extra; i++) {
 
-            suma += precioHorasExtras;}
+            suma += precioHorasExtras;
+        }
 
-            return suma;
+        return suma;
+
 
 
 }
+
 float Trabajador::calcularAnualidads() {
 
-    int suma = 0;
-    int anualidad = calcularSalarioBase() * 0.05;
-    if (annosLaborados < 0)
-        for (int i = 0; i < annosLaborados; i++) {
-
-            suma = suma + calcularSalarioBase();
-        }
+    int suma =0;
+    suma = (calcularSalarioBase()*0.05)*getAnnosLaborados();
 
     return suma;
+
 }
 
 float Trabajador::calcularSalarioBruto() {
 
-    int suma = 0;
-    suma = calcularSalarioBase() + calcularAnualidads() + calcularHorasExtra();
+
+    return calcularSalarioBase() + calcularHorasExtra() + calcularAnualidads();
 
 
-    return suma;
+
 }
 
 float Trabajador::calcularCargas() {
 
-    int nuevoSalario = calcularSalarioBruto();
-    nuevoSalario * 0.09;
+    float nuevoSalario = calcularSalarioBruto()*0.09;
 
 
 
@@ -108,19 +106,19 @@ float Trabajador::calcularCargas() {
 
 float Trabajador::calcularSalarioNeto() {
 
-    int salarioReal;
 
-    salarioReal=calcularSalarioBruto()-calcularCargas();
+
+    float salarioReal = calcularSalarioBruto() - calcularCargas();
 
     return salarioReal;
 }
 
 string Trabajador::toString() {
     string z;
-    z = +"identifación: " + getId() + "\n" + "el salario base es: " + to_string(calcularSalarioBase()) + "\n" +
+    z = +"identifacion: " + getId() + "\n" + "el salario base es: " + to_string(calcularSalarioBase()) + "\n" +
         "las horas extras son de: " + to_string(calcularHorasExtra()) + "\n" + "el salario bruto es de : " +
-       to_string(calcularSalarioBruto()) + "\n" + "el salario neto es de: " + to_string(calcularSalarioNeto()) +"\n";
-
+        to_string(calcularSalarioBruto()) + "\n" + "el salario neto es de: " + to_string(calcularSalarioNeto()) + "\n" + "anualidades:  "
+ + to_string(calcularAnualidads());
     return z;
 }
 

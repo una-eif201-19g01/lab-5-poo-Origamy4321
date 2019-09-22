@@ -4,7 +4,7 @@
 
 #include "Secretaria.h"
 
-Secretaria::Secretaria():  {}
+Secretaria::Secretaria(){}
 
 Secretaria::Secretaria(const string &iD, int horasLab, int precioHoras, int annosLaborados) : Trabajador(iD, horasLab,
                                                                                                          precioHoras,
